@@ -1,27 +1,20 @@
-import pandas as pd
-import numpy as np
-import scipy
 import pybaseball
-import json
+import pandas as pd
 
+astros_batting_log = pybaseball.team_game_logs(2017, 'HOU')
 
-# data = team_batting(2023)
-# data.to_json('./json_files/Team_Batting_23.json')
+grouped = astros_batting_log.groupby('Home').agg({
+    'AB': 'sum',                 # Total at-bats
+    'H': 'sum',                  # Total hits
+    'R': 'sum',                  # Total runs
+    'HR': 'sum',                 # Total home runs
+    'RBI': 'sum',                # Total RBIs
+    'BB': 'sum',                 # Total walks
+    'SO': 'sum',                 # Total strikeouts
+    'BA': 'mean',                # Average batting average
+    'OBP': 'mean',               # Average on-base percentage
+    'SLG': 'mean',               # Average slugging percentage
+    'OPS': 'mean'                # Average on-base plus slugging
+}).reset_index()
 
-# data_object = json.load(open('./json_files/Team_Batting_23.json'))
-
-# data_formated = json.dumps(data_object, indent=1)
-
-# print(data_formated[0:100])
-
-LAD_batting_23 = pybaseball.team_batting_bref('LAD',2023) # this is a pandas DF
-
-# filter out the pitchers
-
-LAD_batters = LAD_batting_23[LAD_batting_23['Pos'] != 'P']
-
-print(LAD_batters[['Name', 'AB', 'H', 'BA']])
-
-batting_log = pybaseball.team_game_logs(2023, 'LAD')
-
-print(batting_log) # this is what you want to use. See if you can replicate manually the post season data. This might give you enough of a data set
+print(grouped)

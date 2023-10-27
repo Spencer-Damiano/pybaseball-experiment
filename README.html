@@ -34,8 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="README_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="README_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -49,10 +47,12 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>I wanted to see if there was a significant impact on the new playoff formate in baseball. For those who aren’t familiar the MLB expanded its playoff this season. as a result three out of four teams that took a one week bye got knocked out of the playoffs. I am trying to see if that being iced for a week showed a negative impact cause directly by having this time off. To do this I will be using pybaseball library to get the statistics of the batters and check to see if the time off had a negative impact.</p>
-<p>My Null Hypothesis is: The impact of not playing for a week is not statistically significance and had no provable impact on postseason performance.</p>
-<p>Alternative Hypothesis is: The impact of not playing for a week was statistically significance and had a provable impact on postseason performance</p>
-<p>My Significance level is <span class="math inline">\(\alpha = 5\%\)</span></p>
+<p>I saw a reddit post that the 2023 Atlanta Braves were using some kind of ‘sign stealing’ which allowed the Braves Ronald Acuna and Matt Olsen to have MVP caliber seasons. The accusation is this, The Braves are ‘stealing signs’ and are relaying this information through a wistle to their batters. This is hard to prove because one its the automatic response of butt hurt teams and two do to the new pitch com system (bluetooth device that allows catchers and pitchers to communicate). To get enough evidence to prove that something is going on I came up with 3 ways you could try prove this:</p>
+<ol type="1">
+<li>Rewatch the games, note every time a whistle is heard on offense, the pitch thrown, and the result.</li>
+<li>Bring a whistle to the game an blow it randomly and see if the hitters get confused.</li>
+<li>Intercept and decode the pitch com signals</li>
+</ol>
 <p><a href="http://youtube.link.goes.here">Software Demo Video Coming</a></p>
 </section>
 <section id="data-analysis-results" class="level1">

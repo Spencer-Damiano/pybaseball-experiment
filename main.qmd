@@ -1,0 +1,98 @@
+---
+title: "A Swinging Suspicion: Are the 2023 Braves the New 2017 Astros?"
+author: "Spencer Damiano"
+format: "html"
+date: "2023-10-28"
+---
+
+# A Swinging Suspicion: Are the 2023 Braves the New 2017 Astros?
+
+## Introduction
+
+This is a personal investigation into seeing if cirtain alligations thrown at the 2023 Atlanta Braves are worth futher ivestigation. I am skeptical that the 23 Braves were cheating because to intercept, decode, and signal using the new pitch com system sounds like it would be very difficult to do. But given the recent popularity with devices like the Flipper Zero which can intercept and decode radio signals, which the pitch com system uses, I am open to the possiblity. However before I do more investigation into the issue before I take further action, such as bringing a whistle and a flipper zero to a Braves game. 
+
+What I am planning on doing is getting the difference between the 2017 Huston Astros home and away stats. The chosen stats are Batting Average, On Base Percentage, Slugging, On-base plus slugging (OPS), Home Runs, and Strike outs. I will then get the difference between the 2023 Atlanta Braves home and away stats. I will then compare the two sets of differences to see if they are similar. If they are, I will then compair both stats to all MLB teams, plus random teams in random years for a baseline.
+
+## Huston Astros 2017
+
+I'm going to now get the 2017 Huston Astros Regular Season Batting Stats. I will then filter the data to only include home games. I will then get the difference between the home and away stats. 
+
+```{python}
+import pybaseball
+import pandas as pd
+
+astros_batting_log = pybaseball.team_game_logs(2017, 'HOU')
+
+grouped = astros_batting_log.groupby('Home').agg({
+    'AB': 'sum',                 # Total at-bats
+    'H': 'sum',                  # Total hits
+    'R': 'sum',                  # Total runs
+    'HR': 'sum',                 # Total home runs
+    'RBI': 'sum',                # Total RBIs
+    'BB': 'sum',                 # Total walks
+    'SO': 'sum',                 # Total strikeouts
+    'BA': 'mean',                # Average batting average
+    'OBP': 'mean',               # Average on-base percentage
+    'SLG': 'mean',               # Average slugging percentage
+    'OPS': 'mean'                # Average on-base plus slugging
+}).reset_index()
+
+difference = {
+    'Home': 'Difference',
+    'R': grouped.loc[grouped['Home'] == True, 'R'].values[0] - grouped.loc[grouped['Home'] == False, 'R'].values[0],
+    'H': grouped.loc[grouped['Home'] == True, 'H'].values[0] - grouped.loc[grouped['Home'] == False, 'H'].values[0],
+    'HR': grouped.loc[grouped['Home'] == True, 'HR'].values[0] - grouped.loc[grouped['Home'] == False, 'HR'].values[0],
+    'RBI': grouped.loc[grouped['Home'] == True, 'RBI'].values[0] - grouped.loc[grouped['Home'] == False, 'RBI'].values[0],
+    'BB': grouped.loc[grouped['Home'] == True, 'BB'].values[0] - grouped.loc[grouped['Home'] == False, 'BB'].values[0],
+    'SO': grouped.loc[grouped['Home'] == True, 'SO'].values[0] - grouped.loc[grouped['Home'] == False, 'SO'].values[0],
+    'BA': grouped.loc[grouped['Home'] == True, 'BA'].values[0] - grouped.loc[grouped['Home'] == False, 'BA'].values[0],
+    'OBP': grouped.loc[grouped['Home'] == True, 'OBP'].values[0] - grouped.loc[grouped['Home'] == False, 'OBP'].values[0],
+    'SLG': grouped.loc[grouped['Home'] == True, 'SLG'].values[0] - grouped.loc[grouped['Home'] == False, 'SLG'].values[0],
+    'OPS': grouped.loc[grouped['Home'] == True, 'OPS'].values[0] - grouped.loc[grouped['Home'] == False, 'OPS'].values[0]
+}
+
+# Append the difference to the grouped dataframe
+grouped = grouped = pd.concat([grouped, pd.DataFrame([difference])],ignore_index=True)
+
+
+print(grouped)
+
+```
+
+The above result is not what I was expecting at all and will servierly effect the rest of my results. After looking into the reporting on the cheating scandle durring the regular season the astros would only use it's sign stealing in high pressure situations and only against releif pitchers. It would be too much to figure out how to filter that data so I'm going to do the same thing that I did above but with the 2017 Huston Astros Post Season Batting Stats. 
+
+```{python}
+import pybaseball
+import pandas as pd
+
+astros_post_batting_log = pybaseball.lcs_logs
+
+```
+
+## Atlanta Braves 2023
+
+```{python} 
+from pybaseball import team_batting
+
+# Get the Braves batting stats for 2023
+braves_2023 = team_batting(2023, 'ATL')
+
+# Filter for home and away stats
+braves_home_2023 = braves_2023[braves_2023['Home/Away'] == 'Home']
+braves_away_2023 = braves_2023[braves_2023['Home/Away'] == 'Away']
+
+
+braves_diff_2023 = {
+    'BA': braves_home_2023['BA'].iloc[0] - braves_away_2023['BA'].iloc[0],
+    'OBP': braves_home_2023['OBP'].iloc[0] - braves_away_2023['OBP'].iloc[0],
+    'SLG': braves_home_2023['SLG'].iloc[0] - braves_away_2023['SLG'].iloc[0],
+    'OPS': braves_home_2023['OPS'].iloc[0] - braves_away_2023['OPS'].iloc[0],
+    'HR': braves_home_2023['HR'].iloc[0] - braves_away_2023['HR'].iloc[0],
+    'K': braves_home_2023['SO'].iloc[0] - braves_away_2023['SO'].iloc[0]
+}
+
+print("2023 Braves Home vs. Away Differences:")
+for stat, value in braves_diff_2023.items():
+    print(f"{stat}: {value:.3f}")
+
+```
