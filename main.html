@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Spencer Damiano">
+<meta name="dcterms.date" content="2023-10-28">
+
+<title>A Swinging Suspicion: Are the 2023 Braves the New 2017 Astros?</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="main_files/libs/clipboard/clipboard.min.js"></script>
+<script src="main_files/libs/quarto-html/quarto.js"></script>
+<script src="main_files/libs/quarto-html/popper.min.js"></script>
+<script src="main_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="main_files/libs/quarto-html/anchor.min.js"></script>
+<link href="main_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="main_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="main_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="main_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="main_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Swinging Suspicion: Are the 2023 Braves the New 2017 Astros?</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Spencer Damiano </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 28, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="a-swinging-suspicion-are-the-2023-braves-the-new-2017-astros" class="level1">
+<h1>A Swinging Suspicion: Are the 2023 Braves the New 2017 Astros?</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This is a personal investigation into seeing if cirtain alligations thrown at the 2023 Atlanta Braves are worth futher ivestigation. I am skeptical that the 23 Braves were cheating because to intercept, decode, and signal using the new pitch com system sounds like it would be very difficult to do. But given the recent popularity with devices like the Flipper Zero which can intercept and decode radio signals, which the pitch com system uses, I am open to the possiblity. However before I do more investigation into the issue before I take further action, such as bringing a whistle and a flipper zero to a Braves game.</p>
+<p>What I am planning on doing is getting the difference between the 2017 Huston Astros home and away stats. The chosen stats are Batting Average, On Base Percentage, Slugging, On-base plus slugging (OPS), Home Runs, and Strike outs. I will then get the difference between the 2023 Atlanta Braves home and away stats. I will then compare the two sets of differences to see if they are similar. If they are, I will then compair both stats to all MLB teams, plus random teams in random years for a baseline.</p>
+</section>
+<section id="huston-astros-2017" class="level2">
+<h2 class="anchored" data-anchor-id="huston-astros-2017">Huston Astros 2017</h2>
+<p>I’m going to now get the 2017 Huston Astros Regular Season Batting Stats. I will then filter the data to only include home games. I will then get the difference between the home and away stats.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pybaseball</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>astros_batting_log <span class="op">=</span> pybaseball.team_game_logs(<span class="dv">2017</span>, <span class="st">'HOU'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> astros_batting_log.groupby(<span class="st">'Home'</span>).agg({</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total at-bats</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total hits</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total runs</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total home runs</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: <span class="st">'sum'</span>,                <span class="co"># Total RBIs</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total walks</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total strikeouts</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: <span class="st">'mean'</span>,                <span class="co"># Average batting average</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OBP'</span>: <span class="st">'mean'</span>,               <span class="co"># Average on-base percentage</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLG'</span>: <span class="st">'mean'</span>,               <span class="co"># Average slugging percentage</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OPS'</span>: <span class="st">'mean'</span>                <span class="co"># Average on-base plus slugging</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}).reset_index()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>difference <span class="op">=</span> {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Home'</span>: <span class="st">'Difference'</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OBP'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'OBP'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'OBP'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLG'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'SLG'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'SLG'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OPS'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'OPS'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'OPS'</span>].values[<span class="dv">0</span>]</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the difference to the grouped dataframe</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> grouped <span class="op">=</span> pd.concat([grouped, pd.DataFrame([difference])],ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Home    AB    H    R   HR  RBI   BB   SO        BA       OBP  \
+0       False  2910  827  501  123  472  278  585  0.279741  0.346395   
+1        True  2701  754  395  115  382  231  502  0.274938  0.340037   
+2  Difference  -209  -73 -106   -8  -90  -47  -83 -0.004802 -0.006358   
+
+        SLG       OPS  
+0  0.469593  0.815963  
+1  0.463975  0.804037  
+2 -0.005617 -0.011926  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\GitStorage\pybaseball-experiment\.venv\Lib\site-packages\pybaseball\team_game_logs.py:20: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  data = pd.read_html(str(table))[0]</code></pre>
+</div>
+</div>
+<p>The above result is not what I was expecting at all and will servierly effect the rest of my results. After looking into the reporting on the cheating scandle durring the regular season the astros would only use it’s sign stealing in high pressure situations and only against releif pitchers. It would be too much to figure out how to filter that data so I’m going to do the same thing that I did above but with the 2017 Huston Astros Post Season Batting Stats.</p>
+<p>This is going to be more difficult because the pybaseball library does not have a function to get post season stats devided by home and away. I’m going to enter them in myself by creating a new dataframe. This will also be limited to the stats I can get from a sites box score which does not contain as many stats as the pybaseball library.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">Sources for this data:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">https://www.thebaseballcube.com/content/playoff_year/2017/</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">https://www.baseball-reference.com/postseason/2017_ALDS2.shtml</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">https://en.wikipedia.org/wiki/2017_American_League_Championship_Series</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">https://en.wikipedia.org/wiki/2017_World_Series</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">For Game 4 alcs and game 5 ws I used:</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">https://www.espn.com/mlb/boxscore/_/gameId/371029118</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">https://www.espn.com/mlb/boxscore/_/gameId/371017110</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">'''</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span>  {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Game'</span>: [</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'alds1'</span>, <span class="st">'alds2'</span>, <span class="st">'alds3'</span>, <span class="st">'alds4'</span>, </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'alcs1'</span>, <span class="st">'alcs2'</span>, <span class="st">'alcs3'</span>, <span class="st">'alcs4'</span>, <span class="st">'alcs5'</span>, <span class="st">'alcs6'</span>, <span class="st">'alcs7'</span>, </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'ws1'</span>, <span class="st">'ws2'</span>, <span class="st">'ws3'</span>, <span class="st">'ws4'</span>, <span class="st">'ws5'</span>, <span class="st">'ws6'</span>, <span class="st">'ws7'</span>],</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Home'</span>: [</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="co">#alds</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="co"># alcs</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span> <span class="co"># ws</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: [</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">38</span>, <span class="dv">33</span>, <span class="co"># alds</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="dv">30</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">29</span>, <span class="dv">32</span>, <span class="dv">31</span>, <span class="dv">33</span>, <span class="co"># alcs</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="dv">30</span>, <span class="dv">43</span>, <span class="dv">36</span>, <span class="dv">28</span>, <span class="dv">41</span>, <span class="dv">33</span>, <span class="dv">33</span>, <span class="co"># ws</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: [</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">4</span>, <span class="co"># alds</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="co"># alcs</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="co"># ws</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: [</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="co"># alds</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="co"># alcs # double check this</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="co"># ws</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: [</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="co"># alds</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="co"># alcs</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        <span class="dv">3</span>, <span class="dv">14</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="co"># ws</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: [</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">4</span>, <span class="co"># alds</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">0</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="co"># alcs</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="co"># ws</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: [</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="co"># alds</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="co"># alcs</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>        <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="co"># ws</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: [</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="co"># alds</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="co"># alcs</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>        <span class="dv">12</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">9</span>, <span class="co"># ws</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>astros_post_season_batting_log <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>dat)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>astros_post_season_batting_log[<span class="st">'BA'</span>] <span class="op">=</span> astros_post_season_batting_log[<span class="st">'H'</span>] <span class="op">/</span> astros_post_season_batting_log[<span class="st">'AB'</span>]</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> astros_post_season_batting_log.groupby(<span class="st">'Home'</span>).agg({</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total at-bats</span></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total hits</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total runs</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total home runs</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: <span class="st">'sum'</span>,                <span class="co"># Total RBIs</span></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total walks</span></span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total strikeouts</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: <span class="st">'mean'</span>,                <span class="co"># Average batting average</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>}).reset_index()</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>grouped[<span class="st">'BA'</span>] <span class="op">=</span> grouped[<span class="st">'BA'</span>].<span class="bu">round</span>(<span class="dv">3</span>) <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>difference <span class="op">=</span> {</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Home'</span>: <span class="st">'Difference'</span>,</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the difference to the grouped dataframe</span></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> grouped <span class="op">=</span> pd.concat([grouped, pd.DataFrame([difference])],ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Home   AB   H   R  HR  RBI  BB  SO     BA
+0       False  302  63  33   9   31  30  79  198.0
+1        True  297  81  51  18   49  31  49  264.0
+2  Difference   -5  18  18   9   18   1 -30   66.0</code></pre>
+</div>
+</div>
+<p>There are the advantages that the Astros saw. They are quite impressive. The main things to show is 18 more hits, 18 more runs, 9 more home runs, 9 less strike outs, and a 66% higher likelyhood to get a hit.</p>
+</section>
+<section id="atlanta-braves-2023" class="level2">
+<h2 class="anchored" data-anchor-id="atlanta-braves-2023">Atlanta Braves 2023</h2>
+<p>I will now compair the 2023 Atlanta Braves Regular Season Batting Stats. I will then filter the data to only include home games. I will then get the difference between the home and away stats.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pybaseball</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>braves_batting_log <span class="op">=</span> pybaseball.team_game_logs(<span class="dv">2023</span>, <span class="st">'ATL'</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> braves_batting_log.groupby(<span class="st">'Home'</span>).agg({</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total at-bats</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total hits</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: <span class="st">'sum'</span>,                  <span class="co"># Total runs</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total home runs</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: <span class="st">'sum'</span>,                <span class="co"># Total RBIs</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total walks</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: <span class="st">'sum'</span>,                 <span class="co"># Total strikeouts</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: <span class="st">'mean'</span>,                <span class="co"># Average batting average</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OBP'</span>: <span class="st">'mean'</span>,               <span class="co"># Average on-base percentage</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLG'</span>: <span class="st">'mean'</span>,               <span class="co"># Average slugging percentage</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OPS'</span>: <span class="st">'mean'</span>                <span class="co"># Average on-base plus slugging</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>}).reset_index()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>difference <span class="op">=</span> {</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Home'</span>: <span class="st">'Difference'</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'AB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'AB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'R'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'R'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'H'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'H'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'HR'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'HR'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RBI'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'RBI'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BB'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BB'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SO'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'SO'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BA'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'BA'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OBP'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'OBP'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'OBP'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLG'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'SLG'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'SLG'</span>].values[<span class="dv">0</span>],</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'OPS'</span>: grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">True</span>, <span class="st">'OPS'</span>].values[<span class="dv">0</span>] <span class="op">-</span> grouped.loc[grouped[<span class="st">'Home'</span>] <span class="op">==</span> <span class="va">False</span>, <span class="st">'OPS'</span>].values[<span class="dv">0</span>]</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the difference to the grouped dataframe</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>grouped <span class="op">=</span> grouped <span class="op">=</span> pd.concat([grouped, pd.DataFrame([difference])],ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grouped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Home    AB    H    R   HR  RBI   BB   SO        BA       OBP  \
+0       False  2865  778  470  156  454  264  637  0.269420  0.341840   
+1        True  2732  765  477  151  462  274  652  0.267704  0.340383   
+2  Difference  -133  -13    7   -5    8   10   15 -0.001716 -0.001457   
+
+        SLG       OPS  
+0  0.479988  0.821864  
+1  0.477753  0.818148  
+2 -0.002235 -0.003716  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\GitStorage\pybaseball-experiment\.venv\Lib\site-packages\pybaseball\team_game_logs.py:20: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  data = pd.read_html(str(table))[0]</code></pre>
+</div>
+</div>
+<p>It doesn’t look like the Braves as a whole team are cheating. Based on this data the Braves about the same on home and the road. They look like there are trade offs between home and away. They have more runs, RBIs, and walks at home, they also though have more strike outs and less hits. This makes me think that the Braves are trying to over perform at home which makes sense.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The 2023 Braves were not experiencing the same advantages that the 2017 Astros at least in the regular season. There is a possibilty that like the Astros they only used this device in important situations that without looking into specific examples filtered by specific condition, which is beyond the scope of this investigation. Due to the Braves postseason performace in the 2023 postseason I do not think that they were cheating in the postseason without building a dataframe and going through it.</p>
+<p>I did do some research into you could intercept a pitchcom device in theory. The pitchcon uses radio signals between the catcher and pitcher. These are the same signals that a device like the popular flipper zero uses. I think that it totaly possible that someone could intercept these signals. While I couldn’t prove that the Braves (or any other team) was using such a device, I would like to personally do it just for fun.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

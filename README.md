@@ -12,7 +12,9 @@ As much as I would like to do all three of those I do not have the time to. Inst
 
 # Data Analysis Results
 
-{List the questions and the answers you found by doing this analysis.}
+The 2023 Braves were not experiencing the same advantages that the 2017 Astros at least in the regular season. There is a possibilty that like the Astros they only used this device in important situations that without looking into specific examples filtered by specific condition, which is beyond the scope of this investigation. Due to the Braves postseason performace in the 2023 postseason I do not think that they were cheating in the postseason without building a dataframe and going through it.
+
+I did do some research into you could intercept a pitchcom device in theory. The pitchcon uses radio signals between the catcher and pitcher. These are the same signals that a device like the popular flipper zero uses. I think that it totaly possible that someone could intercept these signals. While I couldn't prove that the Braves (or any other team) was using such a device, I would like to personally do it just for fun.
 
 # Development Environment
 
@@ -31,17 +33,21 @@ AI Tools Used -
 * Github CoPilot
 * ChatGpt 4
 
-{Describe the programming language that you used and any libraries.}
+Language - 
+* Python
+* Qmd
 
 # Useful Websites
 
 {Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [pybaseball](https://github.com/jldbc/pybaseball)
+* [The Base Ball Cube](https://www.thebaseballcube.com/content/playoff_year/2017/)
+* [ESPN](espn.com)
 
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Item 3
+* The [Baseball Cube](https://www.thebaseballcube.com/content/playoff_year/2017/) has every pitch that a batter saw in their box office scoring. It would be interesting to dive into this data more.
+* Create conditions that would flag certain at bats at home and then look for similar conditions on the road. For example, off speed pitches with runners in scoring position.
+* Build a flipper zero like device and experiment with a pitchcom
+* blow a whistle randomly at a braves home game

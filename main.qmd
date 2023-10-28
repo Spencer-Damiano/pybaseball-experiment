@@ -23,6 +23,7 @@ import pandas as pd
 
 astros_batting_log = pybaseball.team_game_logs(2017, 'HOU')
 
+
 grouped = astros_batting_log.groupby('Home').agg({
     'AB': 'sum',                 # Total at-bats
     'H': 'sum',                  # Total hits
@@ -39,6 +40,7 @@ grouped = astros_batting_log.groupby('Home').agg({
 
 difference = {
     'Home': 'Difference',
+    'AB': grouped.loc[grouped['Home'] == True, 'AB'].values[0] - grouped.loc[grouped['Home'] == False, 'AB'].values[0],
     'R': grouped.loc[grouped['Home'] == True, 'R'].values[0] - grouped.loc[grouped['Home'] == False, 'R'].values[0],
     'H': grouped.loc[grouped['Home'] == True, 'H'].values[0] - grouped.loc[grouped['Home'] == False, 'H'].values[0],
     'HR': grouped.loc[grouped['Home'] == True, 'HR'].values[0] - grouped.loc[grouped['Home'] == False, 'HR'].values[0],
@@ -61,38 +63,164 @@ print(grouped)
 
 The above result is not what I was expecting at all and will servierly effect the rest of my results. After looking into the reporting on the cheating scandle durring the regular season the astros would only use it's sign stealing in high pressure situations and only against releif pitchers. It would be too much to figure out how to filter that data so I'm going to do the same thing that I did above but with the 2017 Huston Astros Post Season Batting Stats. 
 
+This is going to be more difficult because the pybaseball library does not have a function to get post season stats devided by home and away. I'm going to enter them in myself by creating a new dataframe. This will also be limited to the stats I can get from a sites box score which does not contain as many stats as the pybaseball library.
+
+
 ```{python}
-import pybaseball
 import pandas as pd
 
-astros_post_batting_log = pybaseball.lcs_logs
+'''
+Sources for this data:
+https://www.thebaseballcube.com/content/playoff_year/2017/
+https://www.baseball-reference.com/postseason/2017_ALDS2.shtml
+https://en.wikipedia.org/wiki/2017_American_League_Championship_Series
+https://en.wikipedia.org/wiki/2017_World_Series
+
+For Game 4 alcs and game 5 ws I used:
+https://www.espn.com/mlb/boxscore/_/gameId/371029118
+https://www.espn.com/mlb/boxscore/_/gameId/371017110
+'''
+
+dat =  {
+    'Game': [
+        'alds1', 'alds2', 'alds3', 'alds4', 
+        'alcs1', 'alcs2', 'alcs3', 'alcs4', 'alcs5', 'alcs6', 'alcs7', 
+        'ws1', 'ws2', 'ws3', 'ws4', 'ws5', 'ws6', 'ws7'],
+    'Home': [
+        True, True, False, False, #alds
+        True, True, False, False, False, True, True, # alcs
+        False, False, True, True, True, False, False # ws
+        ],
+    'AB': [
+        34, 36, 38, 33, # alds
+        30, 28, 31, 29, 32, 31, 33, # alcs
+        30, 43, 36, 28, 41, 33, 33, # ws
+    ],
+    'R': [
+        8, 8, 10, 4, # alds
+        2, 2, 1, 4, 0, 7, 4, # alcs
+        1, 7, 5, 2, 13, 1, 5, # ws
+    ],
+    'HR': [
+        4, 2, 1, 1, # alds
+        0, 1, 0, 0, 0, 1, 2, # alcs # double check this
+        1, 4, 1, 2, 5, 1, 1, # ws
+    ],
+    'H': [
+        12, 12, 15, 9, # alds
+        6, 5, 4, 3, 4, 8, 10, # alcs
+        3, 14, 12, 2, 14, 6, 5, # ws
+    ],
+    'RBI': [
+        8, 7, 10, 4, # alds
+        2, 2, 1, 3, 0, 7, 4, # alcs
+        1, 7, 4, 2, 13, 1, 4, # ws
+    ],
+    'BB': [
+        2, 6, 3, 4, # alds
+        1, 3, 8, 3, 1, 5, 3, # alcs
+        0, 5, 4, 2, 5, 2, 4, # ws
+    ],
+    'SO': [
+        8, 5, 9, 7, # alds
+        5, 4, 7, 9, 9, 7, 4, # alcs
+        12, 8, 6, 4, 6, 9, 9, # ws
+    ],
+}
+
+astros_post_season_batting_log = pd.DataFrame(data=dat)
+
+astros_post_season_batting_log['BA'] = astros_post_season_batting_log['H'] / astros_post_season_batting_log['AB']
+
+
+
+grouped = astros_post_season_batting_log.groupby('Home').agg({
+    'AB': 'sum',                 # Total at-bats
+    'H': 'sum',                  # Total hits
+    'R': 'sum',                  # Total runs
+    'HR': 'sum',                 # Total home runs
+    'RBI': 'sum',                # Total RBIs
+    'BB': 'sum',                 # Total walks
+    'SO': 'sum',                 # Total strikeouts
+    'BA': 'mean',                # Average batting average
+}).reset_index()
+
+grouped['BA'] = grouped['BA'].round(3) * 1000
+
+difference = {
+    'Home': 'Difference',
+    'AB': grouped.loc[grouped['Home'] == True, 'AB'].values[0] - grouped.loc[grouped['Home'] == False, 'AB'].values[0],
+    'R': grouped.loc[grouped['Home'] == True, 'R'].values[0] - grouped.loc[grouped['Home'] == False, 'R'].values[0],
+    'H': grouped.loc[grouped['Home'] == True, 'H'].values[0] - grouped.loc[grouped['Home'] == False, 'H'].values[0],
+    'HR': grouped.loc[grouped['Home'] == True, 'HR'].values[0] - grouped.loc[grouped['Home'] == False, 'HR'].values[0],
+    'RBI': grouped.loc[grouped['Home'] == True, 'RBI'].values[0] - grouped.loc[grouped['Home'] == False, 'RBI'].values[0],
+    'BB': grouped.loc[grouped['Home'] == True, 'BB'].values[0] - grouped.loc[grouped['Home'] == False, 'BB'].values[0],
+    'SO': grouped.loc[grouped['Home'] == True, 'SO'].values[0] - grouped.loc[grouped['Home'] == False, 'SO'].values[0],
+    'BA': grouped.loc[grouped['Home'] == True, 'BA'].values[0] - grouped.loc[grouped['Home'] == False, 'BA'].values[0],
+}
+
+# Append the difference to the grouped dataframe
+grouped = grouped = pd.concat([grouped, pd.DataFrame([difference])],ignore_index=True)
+
+print(grouped)
 
 ```
+
+There are the advantages that the Astros saw. They are quite impressive. The main things to show is 18 more hits, 18 more runs, 9 more home runs, 9 less strike outs, and a 66% higher likelyhood to get a hit.
+
+
 
 ## Atlanta Braves 2023
 
+I will now compair the 2023 Atlanta Braves Regular Season Batting Stats. I will then filter the data to only include home games. I will then get the difference between the home and away stats.
+
 ```{python} 
-from pybaseball import team_batting
+import pybaseball
 
-# Get the Braves batting stats for 2023
-braves_2023 = team_batting(2023, 'ATL')
+braves_batting_log = pybaseball.team_game_logs(2023, 'ATL')
 
-# Filter for home and away stats
-braves_home_2023 = braves_2023[braves_2023['Home/Away'] == 'Home']
-braves_away_2023 = braves_2023[braves_2023['Home/Away'] == 'Away']
+grouped = braves_batting_log.groupby('Home').agg({
+    'AB': 'sum',                 # Total at-bats
+    'H': 'sum',                  # Total hits
+    'R': 'sum',                  # Total runs
+    'HR': 'sum',                 # Total home runs
+    'RBI': 'sum',                # Total RBIs
+    'BB': 'sum',                 # Total walks
+    'SO': 'sum',                 # Total strikeouts
+    'BA': 'mean',                # Average batting average
+    'OBP': 'mean',               # Average on-base percentage
+    'SLG': 'mean',               # Average slugging percentage
+    'OPS': 'mean'                # Average on-base plus slugging
+}).reset_index()
 
-
-braves_diff_2023 = {
-    'BA': braves_home_2023['BA'].iloc[0] - braves_away_2023['BA'].iloc[0],
-    'OBP': braves_home_2023['OBP'].iloc[0] - braves_away_2023['OBP'].iloc[0],
-    'SLG': braves_home_2023['SLG'].iloc[0] - braves_away_2023['SLG'].iloc[0],
-    'OPS': braves_home_2023['OPS'].iloc[0] - braves_away_2023['OPS'].iloc[0],
-    'HR': braves_home_2023['HR'].iloc[0] - braves_away_2023['HR'].iloc[0],
-    'K': braves_home_2023['SO'].iloc[0] - braves_away_2023['SO'].iloc[0]
+difference = {
+    'Home': 'Difference',
+    'AB': grouped.loc[grouped['Home'] == True, 'AB'].values[0] - grouped.loc[grouped['Home'] == False, 'AB'].values[0],
+    'R': grouped.loc[grouped['Home'] == True, 'R'].values[0] - grouped.loc[grouped['Home'] == False, 'R'].values[0],
+    'H': grouped.loc[grouped['Home'] == True, 'H'].values[0] - grouped.loc[grouped['Home'] == False, 'H'].values[0],
+    'HR': grouped.loc[grouped['Home'] == True, 'HR'].values[0] - grouped.loc[grouped['Home'] == False, 'HR'].values[0],
+    'RBI': grouped.loc[grouped['Home'] == True, 'RBI'].values[0] - grouped.loc[grouped['Home'] == False, 'RBI'].values[0],
+    'BB': grouped.loc[grouped['Home'] == True, 'BB'].values[0] - grouped.loc[grouped['Home'] == False, 'BB'].values[0],
+    'SO': grouped.loc[grouped['Home'] == True, 'SO'].values[0] - grouped.loc[grouped['Home'] == False, 'SO'].values[0],
+    'BA': grouped.loc[grouped['Home'] == True, 'BA'].values[0] - grouped.loc[grouped['Home'] == False, 'BA'].values[0],
+    'OBP': grouped.loc[grouped['Home'] == True, 'OBP'].values[0] - grouped.loc[grouped['Home'] == False, 'OBP'].values[0],
+    'SLG': grouped.loc[grouped['Home'] == True, 'SLG'].values[0] - grouped.loc[grouped['Home'] == False, 'SLG'].values[0],
+    'OPS': grouped.loc[grouped['Home'] == True, 'OPS'].values[0] - grouped.loc[grouped['Home'] == False, 'OPS'].values[0]
 }
 
-print("2023 Braves Home vs. Away Differences:")
-for stat, value in braves_diff_2023.items():
-    print(f"{stat}: {value:.3f}")
+# Append the difference to the grouped dataframe
+grouped = grouped = pd.concat([grouped, pd.DataFrame([difference])],ignore_index=True)
+
+
+print(grouped)
 
 ```
+
+It doesn't look like the Braves as a whole team are cheating. Based on this data the Braves about the same on home and the road. They look like there are trade offs between home and away. They have more runs, RBIs, and walks at home, they also though have more strike outs and less hits. This makes me think that the Braves are trying to over perform at home which makes sense. 
+
+
+## Summary
+
+The 2023 Braves were not experiencing the same advantages that the 2017 Astros at least in the regular season. There is a possibilty that like the Astros they only used this device in important situations that without looking into specific examples filtered by specific condition, which is beyond the scope of this investigation. Due to the Braves postseason performace in the 2023 postseason I do not think that they were cheating in the postseason without building a dataframe and going through it.
+
+I did do some research into you could intercept a pitchcom device in theory. The pitchcon uses radio signals between the catcher and pitcher. These are the same signals that a device like the popular flipper zero uses. I think that it totaly possible that someone could intercept these signals. While I couldn't prove that the Braves (or any other team) was using such a device, I would like to personally do it just for fun.
