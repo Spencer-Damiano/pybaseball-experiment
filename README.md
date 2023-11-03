@@ -8,7 +8,7 @@ I saw a reddit post that the 2023 Atlanta Braves were using some kind of 'sign s
 
 As much as I would like to do all three of those I do not have the time to. Instead I am going to compare the 2017 Huston Astros home and away batting averages with every other teams averages to see if there is a noticeable difference and then see if the 2023 Atlanta Braves experienced a similar benefit. If they did I might look into the above options.
 
-* [Software Demo Video Coming](http://youtube.link.goes.here)
+* [Software Demo Video ](https://youtu.be/OGk9eSj16z0)
 * [Report](https://spencer-damiano.github.io/pybaseball-experiment/main.html)
 
 # Data Analysis Results
