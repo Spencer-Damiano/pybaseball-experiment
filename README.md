@@ -40,14 +40,12 @@ Language -
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 * [pybaseball](https://github.com/jldbc/pybaseball)
 * [The Base Ball Cube](https://www.thebaseballcube.com/content/playoff_year/2017/)
 * [ESPN](espn.com)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
 * The [Baseball Cube](https://www.thebaseballcube.com/content/playoff_year/2017/) has every pitch that a batter saw in their box office scoring. It would be interesting to dive into this data more.
 * Create conditions that would flag certain at bats at home and then look for similar conditions on the road. For example, off speed pitches with runners in scoring position.
 * Build a flipper zero like device and experiment with a pitchcom
